@@ -164,6 +164,10 @@ body {
       <div class="test-badge tb-a">50–89%<br>Score × 7%</div>
       <div class="test-badge tb-g">90%+<br>(Score×2) × 7%</div>
     </div>
+    <div style="margin-top:8px;padding:7px 10px;border-radius:6px;background:rgba(55,138,221,0.08);border:1px solid rgba(55,138,221,0.2);display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:10px;color:rgba(255,255,255,0.4)">KT contribution</span>
+      <span style="font-size:12px;font-weight:700;color:#64B5F6" id="kt-contrib">—</span>
+    </div>
   </div>
 
   <div class="field">
@@ -223,6 +227,10 @@ function calc() {
   let testPct = 0;
   if (test >= 90)      testPct = (test / 100) * 2 * 7;
   else if (test >= 50) testPct = (test / 100) * 7;
+
+  // Show KT contribution live
+  const ktEl = document.getElementById('kt-contrib');
+  if (ktEl) ktEl.textContent = test < 50 ? '0% (below 50%)' : testPct.toFixed(2) + '%';
 
   // SR = (Goals excl. KT + KT contribution + Discretionary) × Adjustment factor
   const totalGoals = goals + testPct + disc;
