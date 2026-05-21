@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTB Bonus Calculator — 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #0d0e14;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.card {
+  background: rgba(21,22,28,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(55,138,221,0.15);
+  border: 1px solid rgba(55,138,221,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.header-title { font-size: 16px; font-weight: 700; color: #fff; }
+.header-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 6px;
+}
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color .2s;
+}
+.field input:focus { border-color: rgba(55,138,221,0.5); background: rgba(55,138,221,0.06); }
+
+.divider { height: 1px; background: rgba(255,255,255,0.07); margin: 20px 0; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 8px;
+}
+.result-row .rl { font-size: 11px; color: rgba(255,255,255,0.5); }
+.result-row .rv { font-size: 13px; font-weight: 700; color: #64B5F6; }
+
+.result-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(99,153,34,0.2), rgba(99,153,34,0.08));
+  border: 1px solid rgba(99,153,34,0.35);
+  margin-top: 4px;
+}
+.result-total .rl { font-size: 12px; font-weight: 700; color: #76DD97; }
+.result-total .rv { font-size: 18px; font-weight: 800; color: #76DD97; }
+
+.note {
+  margin-top: 14px;
+  font-size: 9px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.test-badges {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 5px;
+  margin-top: 6px;
+}
+.test-badge {
+  text-align: center;
+  padding: 5px 6px;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.tb-r { background: rgba(226,75,74,0.12); color: #FF6B6B; border: 1px solid rgba(226,75,74,0.25); }
+.tb-a { background: rgba(239,159,39,0.12); color: #FFB74D; border: 1px solid rgba(239,159,39,0.25); }
+.tb-g { background: rgba(99,153,34,0.12); color: #76DD97; border: 1px solid rgba(99,153,34,0.25); }
+
+.xtb-brand {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.15);
+  margin-top: 20px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.xtb-brand span { color: #E24B4A; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="header">
+    <div class="header-icon">🧮</div>
+    <div>
+      <div class="header-title">Bonus Calculator</div>
+    </div>
+  </div>
+  <div class="header-sub">2026 Quarterly Bonus Estimate · XTB UK Customer Support</div>
+
+  <div class="field">
+    <label>Monthly salary (PLN)</label>
+    <input type="number" id="calc-salary" value="10000" oninput="calc()">
+  </div>
+
+  <div class="field">
+    <label>Goals realisation excl. knowledge test (%)</label>
+    <input type="number" id="calc-goals" value="80" min="0" max="100" oninput="calc()">
+  </div>
+
+  <div class="field">
+    <label>Knowledge test score (%)</label>
+    <input type="number" id="calc-test" value="75" min="0" max="100" oninput="calc()">
+    <div class="test-badges" style="margin-top:6px">
+      <div class="test-badge tb-r">Below 50%<br>Zero</div>
+      <div class="test-badge tb-a">50–89%<br>Score × 7%</div>
+      <div class="test-badge tb-g">90%+<br>(Score×2) × 7%</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Adjustment factor</label>
+    <input type="number" id="calc-factor" value="0.65" min="0" max="2" step="0.01" oninput="calc()">
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="result-row">
+    <span class="rl">Bonus base</span>
+    <span class="rv" id="res-base">—</span>
+  </div>
+  <div class="result-row">
+    <span class="rl">Standardised realisation</span>
+    <span class="rv" id="res-std">—</span>
+  </div>
+  <div class="result-total">
+    <span class="rl">Est. quarterly bonus</span>
+    <span class="rv" id="res-total">—</span>
+  </div>
+
+  <div class="note">* Estimate only. Discretionary bonus (15%) not included.<br>Final amount calculated by HR in Performance Hub.</div>
+
+  <div class="xtb-brand">UK <span>CS</span> · 2026</div>
+
+</div>
+
+<script>
+function calc() {
+  const salary = parseFloat(document.getElementById('calc-salary').value) || 0;
+  const goals  = parseFloat(document.getElementById('calc-goals').value)  || 0;
+  const test   = parseFloat(document.getElementById('calc-test').value)   || 0;
+  const factor = parseFloat(document.getElementById('calc-factor').value) || 0;
+
+  const base = salary * 0.75;
+
+  let testPct = 0;
+  if (test >= 90)      testPct = (test / 100) * 2 * 7;
+  else if (test >= 50) testPct = (test / 100) * 7;
+
+  const totalGoals  = goals + testPct;
+  const stdRealPct  = (totalGoals / 100) * factor * 100;
+  const stdAmt      = base * (stdRealPct / 100);
+
+  const fmt  = v => v.toLocaleString('en-GB', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' PLN';
+  const fmtP = v => v.toFixed(2) + '%';
+
+  document.getElementById('res-base').textContent  = fmt(base);
+  document.getElementById('res-std').textContent   = fmtP(stdRealPct) + ' → ' + fmt(stdAmt);
+  document.getElementById('res-total').textContent = fmt(stdAmt);
+}
+calc();
+</script>
+</body>
+</html>
