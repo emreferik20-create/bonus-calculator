@@ -157,12 +157,12 @@ body {
   </div>
 
   <div class="field">
-    <label>Knowledge test score (%) · max 100</label>
-    <input type="number" id="calc-test" value="60" min="0" max="100" oninput="clamp(this,0,100);calc()">
+    <label>Knowledge test score (%) · steps of 10</label>
+    <input type="number" id="calc-test" value="60" min="0" max="100" step="10" oninput="clamp(this,0,100);calc()">
     <div class="test-badges" style="margin-top:6px">
       <div class="test-badge tb-r">Below 50%<br>Zero</div>
-      <div class="test-badge tb-a">50–89%<br>Score × 7%</div>
-      <div class="test-badge tb-g">90%+<br>(Score×2) × 7%</div>
+      <div class="test-badge tb-a">50–90%<br>Score × 7%</div>
+      <div class="test-badge tb-g">100%<br>(Score×2) × 7%</div>
     </div>
     <div style="margin-top:8px;padding:7px 10px;border-radius:6px;background:rgba(55,138,221,0.08);border:1px solid rgba(55,138,221,0.2);display:flex;justify-content:space-between;align-items:center">
       <span style="font-size:10px;color:rgba(255,255,255,0.4)">KT contribution</span>
@@ -228,7 +228,7 @@ function calc() {
 
   // Knowledge test contribution as % points
   let testPct = 0;
-  if (test >= 90)      testPct = (test / 100) * 2 * 7;
+  if (test === 100)    testPct = (test / 100) * 2 * 7;
   else if (test >= 50) testPct = (test / 100) * 7;
 
   // Show KT contribution live
